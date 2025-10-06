@@ -91,11 +91,3 @@ curl -X POST http://127.0.0.1:8000/api/invoices/1/pay/ \
 ```bash
 python manage.py test
 ```
-
-## Business Rules
-
-- Invoices must have at least one item
-- Total amount is auto-calculated from items
-- Invoices can only be paid if status is "Pending"
-- Each invoice has a unique reference number (UUID)
-- Totals cannot be negative
