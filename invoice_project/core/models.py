@@ -8,7 +8,7 @@ class Invoice(models.Model):
         ('Paid', 'Paid'),
     )
     
-    reference_number = models.CharField(max_length=100, unique=True, default=uuid.uuid4)
+    reference_number = models.CharField(max_length=100, unique=True, default=lambda: str(uuid.uuid4()))
     customer_name = models.CharField(max_length=200)
     date = models.DateField(auto_now_add=True)
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='Pending')
