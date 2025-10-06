@@ -91,3 +91,29 @@ curl -X POST http://127.0.0.1:8000/api/invoices/1/pay/ \
 ```bash
 python manage.py test
 ```
+## Database Schema
+┌─────────────────────────────────────┐
+│         core_invoice                │
+├─────────────────────────────────────┤
+│ • id (PK)                           │
+│ • reference_number (UNIQUE)         │
+│ • customer_name                     │
+│ • date                              │
+│ • status (Pending/Paid)             │
+│ • total_amount                      │
+└─────────────┬───────────────────────┘
+              │
+              │ ONE-TO-MANY
+              │
+      ┌───────┴────────┐
+      │                │
+      ▼                ▼
+┌─────────────────┐  ┌─────────────────────┐
+│ core_invoiceitem│  │ core_transaction    │
+├─────────────────┤  ├─────────────────────┤
+│ • id (PK)       │  │ • id (PK)           │
+│ • invoice_id(FK)│  │ • invoice_id (FK)   │
+│ • description   │  │ • transaction_type  │
+│ • quantity      │  │ • amount            │
+│ • unit_price    │  │ • date              │
+└─────────────────┘  └─────────────────────┘
