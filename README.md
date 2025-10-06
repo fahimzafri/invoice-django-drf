@@ -92,6 +92,7 @@ curl -X POST http://127.0.0.1:8000/api/invoices/1/pay/ \
 python manage.py test
 ```
 ## Database Schema
+```bash
 ┌─────────────────────────────────────┐
 │         core_invoice                │
 ├─────────────────────────────────────┤
@@ -117,3 +118,4 @@ python manage.py test
 │ • quantity      │  │ • amount            │
 │ • unit_price    │  │ • date              │
 └─────────────────┘  └─────────────────────┘
+```
